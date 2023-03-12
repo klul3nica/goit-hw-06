@@ -1,9 +1,12 @@
-const input = document.querySelector("#validation-input");
-const inputLength = document.querySelector('input[data-length = "6"]');
+const inputEl = document.querySelector('input');
 
-input.addEventListener("blur", onInputBlur);
+inputEl.addEventListener('blur', onInputBlur);
 
 function onInputBlur(event) {
-    if (event.currentTarget.value.length !== )
-    input.style = "border-color: #f44336";
-};
+    const total = event.currentTarget.value.length
+    if (Number(inputEl.dataset.length) !== total) {
+        inputEl.classList.add('invalid');
+        return;
+    }
+    inputEl.classList.add('valid');
+}
